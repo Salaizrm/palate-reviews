@@ -7,10 +7,10 @@ its ok to use bootstrap and jquery. Use these to set up the aesthetic of the sit
 Setting up files:
   x - install corneal,
   x - get basic folder structure set up.
-  - Create Migrations
-  - Create Models
-  - Create Controllers(files) (Go into config and add use "name of Controllers")
-  - Create Views(folders)
+  x - Create Migrations
+  x - Create Models
+  x - Create Controllers(files) (Go into config and add use "name of Controllers")
+  x - Create Views(folders)
 
 creating controllers and views
 

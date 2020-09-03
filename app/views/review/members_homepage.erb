@@ -3,10 +3,21 @@
 
 <p> This page should also include a button to send people to their profiles, a logout button and a create new review button </p>
 
-<%= "Hello, #{@user.username}" %>
-
-<!-- <form method="get" action="/profile/:slug">
-  <input type="submit" id="submit" value="profile">
-</form> -->
+<p>Hello, <%=@user.username%></p>
 <br></br>
-<a href="/logout">Logout</a>
+  <a href="/profile">Profile Page</a>
+<br></br>
+  <a href="/logout">Logout</a>
+<br></br>
+<form method="POST" action="/review">
+  <input type="submit" id=submit value="Create new review!">
+</form>
+
+<h3>All reviews</h3>
+<ul>
+  <% Review.all.each do |r| %>
+    <li>
+      <%= r.content %>
+    </li>
+  <% end %>
+</ul>

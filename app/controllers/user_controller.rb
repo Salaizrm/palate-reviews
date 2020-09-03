@@ -23,6 +23,7 @@ class UserController < ApplicationController
       if @user && @user.authenticate(params[:password])
         session[:user_id] = @user.id
       redirect to '/member_homepage'
+      #in review controller
     else
       redirect to '/login'
     end
@@ -42,6 +43,15 @@ class UserController < ApplicationController
       redirect to '/'
     end
 
+    get '/profile' do
+      @review = Review.all
+      if Helpers.is_logged_in?(session)
+        @user = Helpers.current_user(session)
+      else
+        redirect to '/members_homepage'
+      end
+      erb :'/user/profile'
+    end
 
 
 end

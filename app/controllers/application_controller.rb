@@ -10,7 +10,31 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/" do
-    erb :homepage
+    if Helpers.is_logged_in?(session)
+      @user = Helpers.current_user(session)
+      erb :'/review/members_homepage'
+    else
+      erb :homepage
+    end
+  end
+
+  get '/member_homepage' do
+    if Helpers.is_logged_in?(session)
+      @user = Helpers.current_user(session)
+      erb :'/review/members_homepage'
+    else
+      redirect to '/login'
+    end
+  end
+
+  get '/profile' do
+    @review = Review.all
+    if Helpers.is_logged_in?(session)
+      @user = Helpers.current_user(session)
+    else
+      redirect to '/members_homepage'
+    end
+    erb :'/user/show'
   end
 
 end

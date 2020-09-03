@@ -5,10 +5,15 @@
   <head>
     <p> this should be centered </p>
     <h1> Welcome, this is the homepage </h1>
-    <p> This is where the date will go </p>
+    <p>Date/Time:
+      <span id="datetime"></span></p>
+      <script>var dt = new Date();
+      document.getElementById("datetime").innerHTML=dt.toLocaleString();</script>
+
     <form method="POST" action="/login">
       <input type="submit" id="submit" value="login">
     </form>
+    <p> If currently a member, please login. Otherwise, signup below. <p>
   </head>
 
 <body>

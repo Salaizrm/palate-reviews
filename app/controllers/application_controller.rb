@@ -31,10 +31,10 @@ class ApplicationController < Sinatra::Base
     @review = Review.all
     if Helpers.is_logged_in?(session)
       @user = Helpers.current_user(session)
+      erb :'/user/show'
     else
-      redirect to '/members_homepage'
+      redirect to '/'
     end
-    erb :'/user/show'
   end
 
 end

@@ -15,6 +15,10 @@
 <ul>
   <% Review.all.each do |r| %>
     <li>
+      <%= r.title %>
+      <%= r.rating %>
+      <%= r.brand %>
+      <%= r.type %>
       <%= r.content %>
     </li>
   <% end %>

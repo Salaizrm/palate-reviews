@@ -20,14 +20,15 @@ class ReviewController < ApplicationController
   end
 
   post '/reviews' do
-    @review = Review.find_by(params[:user_id])
+    @review.save
     if Helpers.is_logged_in?(session)
       @user = Helpers.current_user(session)
       erb :'/review/index'
     else
       redirect to "/login"
     end
-  end
 
+
+  end
 
 end

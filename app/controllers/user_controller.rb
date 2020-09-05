@@ -3,6 +3,7 @@ class UserController < ApplicationController
     post '/signup' do
       @user = User.create(params)
         if params[:username] == "" || params[:email] == "" || params[:password] == ""
+          flash[:signup_error] = erb :'flash_messages/invalid_signup'
           redirect to '/'
         elsif
           @user.save
@@ -10,6 +11,7 @@ class UserController < ApplicationController
           redirect to '/member_homepage'
         else
           @user = @user.id
+          flash[:signup_taken] = erb :'flash_messages/signup_taken'
           redirect to '/'
         end
       end

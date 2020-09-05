@@ -32,6 +32,18 @@
   </form>
 </body>
 
+<mark>
+  <% if flash.has?(:signup_error) %>
+    <%= flash[:signup_error]%>
+  <% end %>
+</mark>
+
+<mark>
+  <% if flash.has?(:signup_taken) %>
+    <%= flash[:signup_taken]%>
+  <% end %>
+</mark>
+
 
 <h2>Description of website...</h2>
 </html>

@@ -17,10 +17,10 @@ Setting up files:
 creating controllers and views
 
 Signup:
-   - allows new user to signup (signup form will be located on homepage).
+   x - allows new user to signup (signup form will be located on homepage).
    - has form that requires valid username, email, and password.
       else refreshes homepage with new error message inside signup box, "sorry the username or email you have entered is already in use". <= THIS STILL NEEDS TO BE ADDED OR "Invalid information"
-   - sends them to members homepage.
+   x - sends them to members homepage.
 Login:
    - has form that requires valid username and password.
       else refreshes page with new error message below login, "Sorry, the information you have entered is invalid, please try again or if your a new user use this link to get started!"

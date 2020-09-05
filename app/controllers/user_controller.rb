@@ -3,13 +3,16 @@ class UserController < ApplicationController
     post '/signup' do
       @user = User.create(params)
         if params[:username] == "" || params[:email] == "" || params[:password] == ""
-        redirect to '/'
-      else
-        @user.save
-        session["user_id"] = @user.id
-        redirect to '/member_homepage'
+          redirect to '/'
+        elsif
+          @user.save
+          session["user_id"] = @user.id
+          redirect to '/member_homepage'
+        else
+          @user = @user.id
+          redirect to '/'
+        end
       end
-    end
 
     get '/login' do
       if Helpers.is_logged_in?(session)

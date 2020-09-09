@@ -45,7 +45,7 @@ class ReviewController < ApplicationController
   get '/review/index' do
     if Helpers.is_logged_in?(session)
       @user = Helpers.current_user(session)
-      @review = Review.find_by(params[:id]) && Review.all
+      @review = Review.find_by(params[@user.id])
       erb :'/review/index'
     else
       flash[:login_error] = erb :'flash_messages/login_error'

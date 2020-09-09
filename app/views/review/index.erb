@@ -5,13 +5,11 @@
       <h1> Here is a list of all your reviews. Here you can select, edit or delete a review you have made.</h1>
 </head>
 <body>
-<% @review.each do |r| %>
-  <%= r.title %>
+  <%= @review.title %>
 </br>
-  <%= r.rating %> stars
+  <%= @review.rating %> stars
 </br>
-  <%= r.content %>
+  <%= @review.content %>
 </br>
-<%end%>
 </body>
 </html>

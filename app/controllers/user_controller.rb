@@ -18,8 +18,9 @@ class UserController < ApplicationController
 
     get '/login' do
       if Helpers.is_logged_in?(session)
-        redirect to '/logout'
+        redirect to '/member_homepage'
       end
+      flash[:login_error] = erb :'flash_messages/login_error'
       erb :'/user/login'
     end
 
@@ -30,6 +31,7 @@ class UserController < ApplicationController
       redirect to '/member_homepage'
       #in review controller
     else
+      flash[:login_error] = erb :'flash_messages/login_error'
       redirect to '/login'
     end
   end

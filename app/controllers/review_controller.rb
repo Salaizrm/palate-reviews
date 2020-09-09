@@ -5,6 +5,7 @@ class ReviewController < ApplicationController
       @user = Helpers.current_user(session)
       erb :'/review/new'
     else
+      flash[:login_error] = erb :'flash_messages/login_error'
       redirect to "/login"
     end
   end
@@ -14,12 +15,14 @@ class ReviewController < ApplicationController
       @user = Helpers.current_user(session)
       erb :'/review/index'
     else
+      flash[:login_error] = erb :'flash_messages/login_error'
       redirect to "/login"
     end
   end
 
   post '/reviews' do
     if !Helpers.is_logged_in?(session)
+      flash[:login_error] = erb :'flash_messages/login_error'
       redirect to "/login"
     end
       @user = Helpers.current_user(session)
@@ -34,7 +37,8 @@ class ReviewController < ApplicationController
         @review.save
         erb :'/review/index'
       else
-        redirect to '/reviews/new'
+        flash[:form_error] = erb :'flash_messages/invalid_form'
+        redirect to '/review/new'
       end
     end
 

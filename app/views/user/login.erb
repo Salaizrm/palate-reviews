@@ -16,5 +16,10 @@
       <br>
         <input type="submit" id="submit" value="login">
       </form>
+      <mark>
+        <% if flash.has?(:login_error) %>
+          <%= flash[:login_error]%>
+        <% end %>
+      </mark>
     </body>
 </html>

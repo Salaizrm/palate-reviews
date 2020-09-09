@@ -2,7 +2,7 @@ Check list for project: (Take things slow Rob, double test everything after buil
 
 9/1/2020
 
-CHANGE OF PLANS: Change project name to "Rate that botttle!", have it be a liquor and beer review site.
+CHANGE OF PLANS: Fuck it, were a movie review site now.
 
 its ok to use bootstrap and jquery. Use these to set up the aesthetic of the site ONCE YOU HAVE CODED EVERYTHING TO WORK.
 

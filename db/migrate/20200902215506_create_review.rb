@@ -3,7 +3,6 @@ class CreateReview < ActiveRecord::Migration
     create_table :reviews do |t|
       t.belongs_to :users, index: true
       t.string :title
-      t.string :brand
       t.string :rating
       t.string :content
 

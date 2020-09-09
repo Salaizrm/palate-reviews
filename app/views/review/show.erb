@@ -7,16 +7,15 @@
 </head>
 <body>
   <ul>
-    <% @review.each do |r| %>
-      <li>
-        <%= r.title %>
-        <%= r.brand %>
-        <%= r.type %>
-        <%= r.rating %>
-        <%= r.content %>
-      </li>
-    <% end %>
-    <a href ="/review/index">Everything looks good!</a>
+    <%= @review.title %>
+  </br>
+    <%= @review.rating %> Stars
+  </br>
+    <%= @review.content %>
+  </br>
+  <form action="/review/index" method=get>
+    <input type="submit" value="Looks Good!"/>
+  </form></br>
   </br>
   <form action="/review/<%= @review.id %>/edit" method=get>
     <input type="submit" value="Edit Review"/>

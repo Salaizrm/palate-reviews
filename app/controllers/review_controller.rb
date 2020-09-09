@@ -19,7 +19,6 @@ class ReviewController < ApplicationController
       @user = Helpers.current_user(session)
       @review = Review.create(
         title: params[:title],
-        brand: params[:brand],
         rating: params[:rating],
         content: params[:content]
         )
@@ -35,6 +34,7 @@ class ReviewController < ApplicationController
     get '/reviews' do
       if Helpers.is_logged_in?(session)
         @user = Helpers.current_user(session)
+        @review = Review.find_by(params[:id])
         erb :'/review/index'
       else
        flash[:login_error] = erb :'flash_messages/login_error'
@@ -42,14 +42,25 @@ class ReviewController < ApplicationController
      end
   end
 
-
-  get '/review/:id' do
-    if !Helpers.is_logged_in?(session)
-      redirect to '/login'
+  get '/review/index' do
+    if Helpers.is_logged_in?(session)
+      @user = Helpers.current_user(session)
+      @review = Review.find_by(params[:id]) && Review.all
+      erb :'/review/index'
+    else
+      flash[:login_error] = erb :'flash_messages/login_error'
+      redirect to "/login"
     end
-    @review = Review.find_by(params[:id])
-    erb :'/tweets/show'
   end
+
+
+  # get '/review/:id' do
+  #   if !Helpers.is_logged_in?(session)
+  #     redirect to '/login'
+  #   end
+  #   @review = Review.find_by(params[:id])
+  #   erb :'/review/show'
+  # end
 
   # get '/review/:id/edit' do
   #   if !Helpers.is_logged_in?(session)

@@ -18,15 +18,15 @@ creating controllers and views
 
 Signup:
    x - allows new user to signup (signup form will be located on homepage).
-   - has form that requires valid username, email, and password.
-      else refreshes homepage with new error message inside signup box, "sorry the username or email you have entered is already in use". <= THIS STILL NEEDS TO BE ADDED OR "Invalid information"
+   x - has form that requires valid username, email, and password.
+      else refreshes homepage with new error message inside signup box, "sorry the username or email you have entered is already in use".
    x - sends them to members homepage.
 Login:
-   - has form that requires valid username and password.
+   x - has form that requires valid username and password.
       else refreshes page with new error message below login, "Sorry, the information you have entered is invalid, please try again or if your a new user use this link to get started!"
 Logout:
-   - Confirms "#{user} are you sure you wish to log out?"
-   - Has button that clears users session, logging them out and redirecting them to homepage.
+   x - Confirms "#{user} are you sure you wish to log out?"
+   x - Has button that clears users session, logging them out and redirecting them to homepage.
 
 Profile:
    - Has users info (name, bio and preferences)

@@ -1,9 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-      <title></title>
+      <title>Your new review!</title>
+      <h1>Here is your review!</h1>
+      <p>If you need to change anything, just press edit or delete down below! </p>
 </head>
 <body>
-
+  <ul>
+    <% @review.each do |r| %>
+      <li>
+        <%= r.title %>
+        <%= r.brand %>
+        <%= r.type %>
+        <%= r.content %>
+      </li>
+    <% end %>
+    <%= @review.created_at %>
+    <a href ="/review/index">Everything looks good!</a>
+    <a href ="/review/edit">let me edit this</a>
+    <a href ="/review/delete">delete review</a>
+  </ul>
 </body>
 </html>

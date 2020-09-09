@@ -12,13 +12,20 @@
         <%= r.title %>
         <%= r.brand %>
         <%= r.type %>
+        <%= r.rating %>
         <%= r.content %>
       </li>
     <% end %>
-    <%= @review.created_at %>
     <a href ="/review/index">Everything looks good!</a>
-    <a href ="/review/edit">let me edit this</a>
-    <a href ="/review/delete">delete review</a>
+  </br>
+  <form action="/review/<%= @review.id %>/edit" method=get>
+    <input type="submit" value="Edit Review"/>
+  </form></br>
+  </br>
+  <form action="/review/<%= @review.id %>/delete" method="post">
+    <input id="hidden" type="hidden" name="_method" value="delete"/>
+    <input type="submit" value="Delete Review" />
+  </form>
   </ul>
 </body>
 </html>

@@ -14,17 +14,16 @@
 ActiveRecord::Schema.define(version: 20200902215506) do
 
   create_table "reviews", force: :cascade do |t|
-    t.integer  "user_id"
+    t.integer  "users_id"
     t.string   "title"
-    t.string   "rating"
     t.string   "brand"
-    t.string   "type"
+    t.string   "rating"
     t.string   "content"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "reviews", ["user_id"], name: "index_reviews_on_user_id"
+  add_index "reviews", ["users_id"], name: "index_reviews_on_users_id"
 
   create_table "users", force: :cascade do |t|
     t.string "username"

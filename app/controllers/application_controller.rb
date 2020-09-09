@@ -6,7 +6,7 @@ use Rack::Flash
     set :public_folder, 'public'
     set :views, 'app/views'
     enable :sessions
-      set :session_secret, "secret" # <= Change this, go and auto generate a password.
+      set :session_secret, "secret"
 
   end
 

@@ -1,9 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-      <title></title>
+      <title>Edit Review</title>
 </head>
 <body>
+  <form action="/review/<%= @review.id %>" method="post" >
+  	<input id="hidden" type="hidden" name="_method" value="patch"/>
 
+  	<label for="content">Current review:</label>
+  </br>
+    <%= @review.title %>
+    <input type="text" name="title" placeholder="<%= @review.title %>" style="height: 300px; width: 300px;">
+  </br>
+    <%= @review.brand %>
+    <input type="text" name="brand" placeholder="<%= @review.brand %>" style="height: 300px; width: 300px;">
+  </br>
+    <%= @review.type %>
+    <input type="text" name="type" placeholder="<%= @review.type %>" style="height: 300px; width: 300px;">
+  </br>
+    <%= @review.rating %>
+    <input type="text" name="rating" placeholder="<%= @review.rating %>" style="height: 300px; width: 300px;">
+  </br>
+    <%= @review.content %>
+  	<input type="text" name="content" placeholder="<%= @review.content %>" style="height: 300px; width: 300px;">
+  </br>
+  	<input type="submit" value="submit" id='submit'>
+
+  </form>
 </body>
 </html>

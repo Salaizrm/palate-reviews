@@ -26,7 +26,13 @@ class ReviewController < ApplicationController
       redirect to "/login"
     end
       @user = Helpers.current_user(session)
-      @review = Review.new(title: params["title"],brand: params["brand"],type: params["type"],rating: params["rating"],content: params["content"], user_id: @user.id)
+      @review = Review.new(
+        title: params["title"],
+        brand: params["brand"],
+        type: params["type"],
+        rating: params["rating"],
+        content: params["content"],
+        user_id: @user.id)
          if @review.valid?
            @review.save
            erb :'/review/show'
@@ -35,5 +41,15 @@ class ReviewController < ApplicationController
            redirect to '/review/new'
          end
        end
+
+  get '/review/:id' do
+  end
+
+  patch '/review/:id' do
+  end
+
+  delete '/review/:id/delete' do
+  end
+
 
 end

@@ -13,7 +13,7 @@ use Rack::Flash
   get "/" do
     if Helpers.is_logged_in?(session)
       @user = Helpers.current_user(session)
-      erb :'/review/members_homepage'
+      erb :'/user/members_homepage'
     else
       erb :homepage
     end
@@ -22,19 +22,9 @@ use Rack::Flash
   get '/member_homepage' do
     if Helpers.is_logged_in?(session)
       @user = Helpers.current_user(session)
-      erb :'/review/members_homepage'
+      erb :'/user/members_homepage'
     else
       redirect to '/login'
-    end
-  end
-
-  get '/profile' do
-    @review = Review.all
-    if Helpers.is_logged_in?(session)
-      @user = Helpers.current_user(session)
-      erb :'/user/show'
-    else
-      redirect to '/'
     end
   end
 

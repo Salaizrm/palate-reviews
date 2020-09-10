@@ -1,5 +1,14 @@
 class UserController < ApplicationController
 
+    get '/profile' do
+      if Helpers.is_logged_in?(session)
+        @user = Helpers.current_user(session)
+        erb :'/user/show'
+      else
+        redirect to '/'
+      end
+    end
+
     post '/signup' do
       @user = User.create(params)
         if params[:username] == "" || params[:email] == "" || params[:password] == ""

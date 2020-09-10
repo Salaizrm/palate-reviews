@@ -17,14 +17,15 @@ class ReviewController < ApplicationController
       redirect to "/login"
     end
       @user = Helpers.current_user(session)
-      @review = Review.create(
+      @review = Helpers.current_user(session).reviews.build(
         title: params[:title],
         rating: params[:rating],
-        content: params[:content]
+        content: params[:content],
+        user_id: @user.id
         )
          if @review.valid?
            @review.save
-           erb :'/review/show'
+           erb :'/review/#{@review.id}'
          else
            flash[:form_error] = erb :'flash_messages/invalid_form'
            redirect to '/review/new'
